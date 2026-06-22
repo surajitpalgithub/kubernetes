@@ -18,7 +18,7 @@ spec:
         - name: python-app
           image: surajitpaldocker/python-sample-app-demo:v1
           env:
-            - name: db-port
+            - name: DB-PORT
               valueFrom:
                 configMapKeyRef:
                   name: test-cm
