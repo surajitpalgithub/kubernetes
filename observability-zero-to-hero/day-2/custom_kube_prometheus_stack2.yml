@@ -1,0 +1,28 @@
+grafana:
+  adminPassword: prom-operator
+
+alertmanager:
+  alertmanagerSpec:
+    alertmanagerConfigSelector:
+      matchLabels:
+        release: monitoring
+    replicas: 2
+    # 🟢 Aligned correctly here:
+    alertmanagerConfigMatcherStrategy:
+      type: None
+    # 🟢 Aligned directly under alertmanagerSpec:
+    imagePullPolicy: IfNotPresent
+
+prometheusOperator:
+  image:
+    pullPolicy: IfNotPresent
+  prometheusConfigReloader:
+    image:
+      pullPolicy: IfNotPresent
+
+prometheus:
+  prometheusSpec:
+    imagePullPolicy: IfNotPresent
+  configReloader:
+    image:
+      pullPolicy: IfNotPresent
